@@ -46,6 +46,8 @@ var proxy = httpProxy.createProxyServer({});
 var server = require('http').createServer(function(req, res) {
   console.log('* ' + new Date() + ' - Proxying ' + req.method + ' ' + req.url);
 
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
   proxy.web(req, res, {
     target: (options.https ? 'https://' : 'https://') + options.domain,
     headers: headers(req.method, req.url, req.body),

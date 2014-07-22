@@ -5,6 +5,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('nodes');
 });
 
 export default Router;
